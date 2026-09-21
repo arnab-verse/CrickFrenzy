@@ -1,0 +1,19 @@
+# CrickFrenzy
+
+CrickFrenzy is a professional, high-precision batting simulation game built with React, TypeScript, and Tailwind CSS. The gameplay focuses on millisecond-level precision timing, shot selection (off-side, straight, on-side), and facing diverse bowling types.
+
+## Game Modes
+- **Quick Play / Practice**: Select team, match length (1, 2, 5 overs), difficulty (Casual, Pro, Champion), and play a standalone chase.
+- **World Cup Tournament**: Complete 20-nation tournament with Group Stages, Super Eight, Semifinals, and Grand Finals, featuring Net Run Rate (NRR) and detailed tournament tables.
+- **Indian Cricket League (ICL)**: 10-team league with 9 round-robin matches per team, Playoffs (Qualifier 1, Eliminator, Qualifier 2), and Grand Finals.
+
+## Controls
+- **Swing**: Space or Enter
+- **Direction**: A/ArrowLeft (Off-side), W/ArrowUp (Straight), D/ArrowRight (On-side)
+- **Next ball**: Space (when ball is dead)
+
+## Routes
+- `/`: Main Home Screen (menu navigation)
+- `/play`: Quick Play Match Setup & Playing modes
+- `/world-cup`: World Cup Tournament Hub & Match progression
+- `/ipl`: Franchise T20 League Hub & Match progression

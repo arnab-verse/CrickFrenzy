@@ -1,0 +1,85 @@
+{
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "User profile and aggregated player stats",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "displayName": { "type": "string" },
+        "email": { "type": "string" },
+        "photoURL": { "type": "string" },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" },
+        "matchesPlayed": { "type": "integer" },
+        "matchesWon": { "type": "integer" },
+        "matchesLost": { "type": "integer" },
+        "tournamentsPlayed": { "type": "integer" },
+        "tournamentsWon": { "type": "integer" },
+        "totalRunsScored": { "type": "integer" },
+        "totalWicketsTaken": { "type": "integer" },
+        "totalFours": { "type": "integer" },
+        "totalSixes": { "type": "integer" },
+        "highestScore": { "type": "integer" },
+        "bestBowling": { "type": "string" },
+        "totalBallsFaced": { "type": "integer" }
+      },
+      "required": ["uid", "email"]
+    },
+    "MatchRecord": {
+      "title": "MatchRecord",
+      "description": "Historical record of completed cricket matches",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "mode": { "type": "string" },
+        "teamSelected": { "type": "string" },
+        "opponentTeam": { "type": "string" },
+        "userRuns": { "type": "integer" },
+        "userWickets": { "type": "integer" },
+        "userOvers": { "type": "number" },
+        "target": { "type": "integer" },
+        "opponentRuns": { "type": "integer" },
+        "opponentWickets": { "type": "integer" },
+        "opponentOvers": { "type": "number" },
+        "result": { "type": "string" },
+        "resultText": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["id", "userId", "result"]
+    },
+    "TournamentRecord": {
+      "title": "TournamentRecord",
+      "description": "Saved state and history of ongoing or completed tournaments",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "type": { "type": "string" },
+        "team": { "type": "string" },
+        "status": { "type": "string" },
+        "matchesPlayed": { "type": "integer" },
+        "wins": { "type": "integer" },
+        "losses": { "type": "integer" },
+        "savedStateJson": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["id", "userId", "type", "status"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": { "$ref": "#/entities/User" },
+      "description": "User profile document containing aggregated player stats"
+    },
+    "/users/{userId}/matches/{matchId}": {
+      "schema": { "$ref": "#/entities/MatchRecord" },
+      "description": "User match history records"
+    },
+    "/users/{userId}/tournaments/{tournamentId}": {
+      "schema": { "$ref": "#/entities/TournamentRecord" },
+      "description": "User tournament state records"
+    }
+  }
+}

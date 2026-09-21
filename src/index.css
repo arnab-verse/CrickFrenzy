@@ -1,0 +1,265 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Archivo:wght@400;500;600&display=swap');
+
+@theme {
+  --font-sans: 'Archivo', sans-serif;
+  --font-display: 'Barlow Condensed', sans-serif;
+
+  --color-bg: #0D0F12;
+  --color-surface: #15181D;
+  --color-surface-2: #1C2027;
+  --color-line: #2B313A;
+  --color-text: #ECEEF2;
+  --color-muted: #8B93A1;
+  --color-accent: #FF9F0A;
+  --color-success: #2FBF71;
+  --color-danger: #E5484D;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    font-family: var(--font-sans);
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+.font-cricket-display {
+  font-family: var(--font-display);
+  letter-spacing: 0.03em;
+}
+
+.font-sports {
+  font-family: 'Teko', sans-serif;
+  letter-spacing: 0.02em;
+}
+
+.font-russo {
+  font-family: 'Russo One', sans-serif;
+}
+
+.font-outfit {
+  font-family: 'Outfit', sans-serif;
+}
+
+.font-cinzel {
+  font-family: 'Cinzel', serif;
+  letter-spacing: 0.05em;
+}
+
+.font-playfair {
+  font-family: 'Playfair Display', serif;
+}
+
+.font-cormorant {
+  font-family: 'Cormorant Garamond', serif;
+}
+
+.bg-radial-vignette {
+  background: radial-gradient(circle, transparent 20%, rgba(2, 6, 23, 0.95) 100%);
+}
+
+/* Mobile landscape safe area padding support */
+.safe-p-landscape {
+  padding-left: max(0.5rem, env(safe-area-inset-left));
+  padding-right: max(0.5rem, env(safe-area-inset-right));
+  padding-top: max(0.25rem, env(safe-area-inset-top));
+  padding-bottom: max(0.25rem, env(safe-area-inset-bottom));
+}
+
+/* Screen Shake and High-Impact Effects */
+@keyframes screenShakeSix {
+  0% { transform: translate3d(0, 0, 0) rotate(0deg) scale(1.02); }
+  10% { transform: translate3d(-9px, -11px, 0) rotate(-1.6deg) scale(1.035); }
+  20% { transform: translate3d(11px, 9px, 0) rotate(1.8deg) scale(1.03); }
+  30% { transform: translate3d(-11px, 7px, 0) rotate(-1.3deg) scale(1.025); }
+  40% { transform: translate3d(9px, -8px, 0) rotate(1.1deg) scale(1.018); }
+  50% { transform: translate3d(-7px, -5px, 0) rotate(-0.8deg) scale(1.012); }
+  60% { transform: translate3d(5px, 5px, 0) rotate(0.6deg) scale(1.008); }
+  70% { transform: translate3d(-4px, 3px, 0) rotate(-0.4deg) scale(1.004); }
+  80% { transform: translate3d(3px, -2px, 0) rotate(0.2deg) scale(1.002); }
+  90% { transform: translate3d(-1px, 1px, 0) rotate(-0.1deg) scale(1.001); }
+  100% { transform: translate3d(0, 0, 0) rotate(0deg) scale(1); }
+}
+
+@keyframes screenShakeWicket {
+  0% { transform: translate3d(0, 0, 0) rotate(0deg) scale(1.01); }
+  10% { transform: translate3d(0, 13px, 0) rotate(2.0deg) scale(1.025); }
+  20% { transform: translate3d(-11px, -11px, 0) rotate(-2.2deg) scale(1.03); }
+  30% { transform: translate3d(11px, -7px, 0) rotate(1.6deg) scale(1.022); }
+  40% { transform: translate3d(-9px, 9px, 0) rotate(-1.3deg) scale(1.016); }
+  50% { transform: translate3d(7px, -6px, 0) rotate(0.9deg) scale(1.011); }
+  60% { transform: translate3d(-5px, 4px, 0) rotate(-0.6deg) scale(1.007); }
+  70% { transform: translate3d(3px, -3px, 0) rotate(0.3deg) scale(1.004); }
+  80% { transform: translate3d(-2px, 2px, 0) rotate(-0.2deg) scale(1.002); }
+  90% { transform: translate3d(1px, -1px, 0) rotate(0.1deg) scale(1); }
+  100% { transform: translate3d(0, 0, 0) rotate(0deg) scale(1); }
+}
+
+.animate-shake-six {
+  animation: screenShakeSix 0.65s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+  will-change: transform;
+}
+
+.animate-shake-wicket {
+  animation: screenShakeWicket 0.65s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+  will-change: transform;
+}
+
+@keyframes pulseGlowSix {
+  0% { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0); }
+  25% { box-shadow: 0 0 16px 2px rgba(245, 158, 11, 0.4); }
+  100% { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0); }
+}
+
+@keyframes pulseGlowWicket {
+  0% { box-shadow: 0 0 0 0 rgba(225, 29, 72, 0); }
+  25% { box-shadow: 0 0 18px 2px rgba(225, 29, 72, 0.45); }
+  100% { box-shadow: 0 0 0 0 rgba(225, 29, 72, 0); }
+}
+
+.glow-six {
+  animation: pulseGlowSix 0.6s ease-out forwards;
+}
+
+.glow-wicket {
+  animation: pulseGlowWicket 0.6s ease-out forwards;
+}
+
+/* Realistic Cricket Batsman & Fielder Dynamic Animations */
+@keyframes batsmanBatTapClassical {
+  0% { transform: rotate(-22deg) translate(0, 0); }
+  25% { transform: rotate(-14deg) translate(0, -3.5px); }
+  42% { transform: rotate(-22deg) translate(0, 0); }
+  60% { transform: rotate(-16deg) translate(0, -2.5px); }
+  78% { transform: rotate(-22deg) translate(0, 0); }
+  100% { transform: rotate(-22deg) translate(0, 0); }
+}
+
+@keyframes batsmanStanceBobClassical {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-1.8px); }
+}
+
+@keyframes batsmanBatTapAggressive {
+  0% { transform: rotate(-32deg) translate(0, 0); }
+  20% { transform: rotate(-18deg) translate(2px, -5.5px); }
+  40% { transform: rotate(-32deg) translate(0, 0); }
+  60% { transform: rotate(-22deg) translate(1px, -4px); }
+  80% { transform: rotate(-32deg) translate(0, 0); }
+  100% { transform: rotate(-32deg) translate(0, 0); }
+}
+
+@keyframes batsmanStanceBobAggressive {
+  0%, 100% { transform: translateY(0px) scale(1, 1); }
+  45% { transform: translateY(-2.8px) scale(1.01, 0.99); }
+  75% { transform: translateY(0.5px) scale(0.99, 1.01); }
+}
+
+@keyframes batsmanBatTapDefensive {
+  0%, 100% { transform: rotate(-4deg) translate(0, 0); }
+  50% { transform: rotate(-1deg) translate(0, -1.5px); }
+}
+
+@keyframes batsmanStanceBobDefensive {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-0.9px); }
+}
+
+@keyframes batsmanBatTapUnorthodox {
+  0% { transform: rotate(-14deg) translate(0, 0); }
+  25% { transform: rotate(-6deg) translate(2px, -3.5px); }
+  50% { transform: rotate(-18deg) translate(-1px, -1px); }
+  75% { transform: rotate(-8deg) translate(1.5px, -2.5px); }
+  100% { transform: rotate(-14deg) translate(0, 0); }
+}
+
+@keyframes batsmanStanceBobUnorthodox {
+  0%, 100% { transform: translateY(0px) translateX(0px); }
+  35% { transform: translateY(-2.2px) translateX(1px); }
+  70% { transform: translateY(-1px) translateX(-0.8px); }
+}
+
+@keyframes fielderAlertKeyframe {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-1.4px); }
+}
+
+@keyframes smokePuffDrift {
+  0% { transform: scale(0.8) translateY(0); opacity: 0.8; }
+  100% { transform: scale(1.4) translateY(-3px); opacity: 0; }
+}
+
+.animate-bat-tap,
+.animate-bat-tap-classical {
+  animation: batsmanBatTapClassical 1.1s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  transform-origin: -10px -40px;
+}
+
+.animate-stance-bob,
+.animate-stance-bob-classical {
+  animation: batsmanStanceBobClassical 1.8s ease-in-out infinite;
+  transform-origin: center bottom;
+  will-change: transform;
+}
+
+.animate-bat-tap-aggressive {
+  animation: batsmanBatTapAggressive 0.75s cubic-bezier(0.2, 0.8, 0.2, 1) infinite;
+  transform-origin: -14px -42px;
+}
+
+.animate-stance-bob-aggressive {
+  animation: batsmanStanceBobAggressive 0.85s ease-in-out infinite;
+  transform-origin: center bottom;
+  will-change: transform;
+}
+
+.animate-bat-tap-defensive {
+  animation: batsmanBatTapDefensive 2.2s ease-in-out infinite;
+  transform-origin: -5px -30px;
+}
+
+.animate-stance-bob-defensive {
+  animation: batsmanStanceBobDefensive 2.4s ease-in-out infinite;
+  transform-origin: center bottom;
+  will-change: transform;
+}
+
+.animate-bat-tap-unorthodox {
+  animation: batsmanBatTapUnorthodox 0.88s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  transform-origin: -2px -40px;
+}
+
+.animate-stance-bob-unorthodox {
+  animation: batsmanStanceBobUnorthodox 0.95s ease-in-out infinite;
+  transform-origin: center bottom;
+  will-change: transform;
+}
+
+.animate-fielder-alert {
+  animation: fielderAlertKeyframe 2.0s ease-in-out infinite;
+  transform-origin: center bottom;
+  will-change: transform;
+}
+
+/* GPU Hardware Acceleration for ultra-smooth 60fps rendering */
+.hardware-accelerated {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+  will-change: transform;
+}
+
+canvas {
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+}
+
+svg {
+  shape-rendering: geometricPrecision;
+  text-rendering: geometricPrecision;
+}

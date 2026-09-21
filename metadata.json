@@ -1,0 +1,6 @@
+{
+  "name": "CrickFrenzy",
+  "description": "Play CrickFrenzy, a professional, high-precision batting simulator. Perfect your timing, score runs, and lead your team to victory in World Cup tournaments.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

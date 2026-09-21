@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CrickFrenzy | Play Professional Cricket Batting Game</title>
+    <meta name="description" content="Play CrickFrenzy, a professional, high-precision batting simulator. Perfect your timing, score runs, and lead your team to victory in World Cup tournaments." />
+    <link rel="canonical" href="https://crick-frenzy.vercel.app/" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://crick-frenzy.vercel.app/" />
+    <meta property="og:title" content="CrickFrenzy | Play Professional Cricket Batting Game" />
+    <meta property="og:description" content="Play CrickFrenzy, a professional, high-precision batting simulator. Perfect your timing, score runs, and lead your team to victory in World Cup tournaments." />
+    <meta property="og:image" content="https://crick-frenzy.vercel.app/assets/images/stadium_cover.webp" />
+    <meta property="og:site_name" content="CrickFrenzy" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://crick-frenzy.vercel.app/" />
+    <meta name="twitter:title" content="CrickFrenzy | Play Professional Cricket Batting Game" />
+    <meta name="twitter:description" content="Play CrickFrenzy, a professional, high-precision batting simulator. Perfect your timing, score runs, and lead your team to victory in World Cup tournaments." />
+    <meta name="twitter:image" content="https://crick-frenzy.vercel.app/assets/images/stadium_cover.webp" />
+
+    <!-- Icons & Manifest -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="theme-color" content="#020617" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;1,400&family=Barlow+Condensed:ital,wght@0,500;0,600;0,700;1,600&family=Teko:wght@500;600;700&family=Russo+One&family=Outfit:wght@300;400;500;600;700;800;900&family=Cinzel:wght@600;700;800;900&family=Playfair+Display:ital,wght@0,600;0,700;0,900;1,700&family=Cormorant+Garamond:wght@600;700&display=swap" rel="stylesheet" />
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "VideoGame",
+          "@id": "https://crick-frenzy.vercel.app/#game",
+          "name": "CrickFrenzy",
+          "description": "A high-precision timing-based cricket batting game focusing on physics, timing, and tournaments.",
+          "genre": "Sports",
+          "playMode": "SinglePlayer",
+          "gamePlatform": "Web Browser",
+          "image": "https://crick-frenzy.vercel.app/assets/images/stadium_cover.webp",
+          "url": "https://crick-frenzy.vercel.app/"
+        },
+        {
+          "@type": "WebApplication",
+          "@id": "https://crick-frenzy.vercel.app/#webapp",
+          "name": "CrickFrenzy",
+          "applicationCategory": "GameApplication",
+          "operatingSystem": "All",
+          "browserRequirements": "Requires HTML5, Web Audio, and Canvas support.",
+          "offers": {
+            "@type": "Offer",
+            "price": "0.00",
+            "priceCurrency": "USD"
+          }
+        }
+      ]
+    }
+    </script>
+  </head>
+  <body class="bg-slate-950 text-slate-100 antialiased selection:bg-amber-500 selection:text-slate-950">
+    <noscript>
+      <div style="padding: 2rem; text-align: center; font-family: sans-serif; background-color: #020617; color: #f8fafc;">
+        <h1>JavaScript Required</h1>
+        <p>CrickFrenzy requires JavaScript to execute millisecond-precise physics calculations and render the stadium.</p>
+      </div>
+    </noscript>
+
+    <div id="root">
+      <!-- Semantic fallback shell for search engines/prerenders -->
+      <div class="sr-only">
+        <h1>CrickFrenzy</h1>
+        <p>A high-precision cricket batting simulation game. Play World Cup and Indian Cricket League tournaments.</p>
+        <nav>
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/play">Quick Play</a></li>
+            <li><a href="/world-cup">World Cup</a></li>
+            <li><a href="/ipl">Indian Cricket League</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

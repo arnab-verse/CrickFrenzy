@@ -1,0 +1,7 @@
+{
+  "cleanUrls": true,
+  "rewrites": [
+    { "source": "/(play|world-cup|ipl)", "destination": "/index.html" },
+    { "source": "/assets/(.*)", "destination": "/assets/$1" }
+  ]
+}
