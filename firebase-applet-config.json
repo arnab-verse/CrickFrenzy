@@ -1,12 +1,9 @@
 {
-  "projectId": "windy-arcadia-w53bd",
-  "appId": "1:1086115818418:web:ea76d611aed99bc66512ab",
-  "apiKey": "AIzaSyArUCL87UFoycRMs8Vo5NNlWGi0nQZrFWE",
-  "authDomain": "windy-arcadia-w53bd.firebaseapp.com",
-  "firestoreDatabaseId": "ai-studio-timingcricket-d0064c63-d78d-4e5b-a70b-065998749ece",
-  "storageBucket": "windy-arcadia-w53bd.firebasestorage.app",
-  "messagingSenderId": "1086115818418",
-  "measurementId": "",
-  "oAuthClientId": "1086115818418-c6dg1o2p9lfplrtr9pvcr2nnpnjl8is6.apps.googleusercontent.com",
-  "recaptchaSiteKey": ""
+  "projectId": "crickfrenzy-b4ff9",
+  "appId": "1:609262556645:web:2cdd435d29e5e8a7ae4b0c",
+  "apiKey": "AIzaSyBdkAQV0MKieP23IPYP0-tKGr0VSIAujdU",
+  "authDomain": "crickfrenzy-b4ff9.firebaseapp.com",
+  "storageBucket": "crickfrenzy-b4ff9.firebasestorage.app",
+  "messagingSenderId": "609262556645",
+  "measurementId": "G-H2CLGYQGN1"
 }
