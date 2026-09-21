@@ -614,7 +614,7 @@ const PitchCanvasComponent: React.FC<PitchCanvasProps> = ({
 
     onSelectDirection?.(clickDirection);
 
-    if (isBallInFlight) {
+    if (isBallInFlight || isRunUpActive) {
       onSwing?.(clickDirection);
     } else {
       onBowl?.();
