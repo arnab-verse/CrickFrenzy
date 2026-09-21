@@ -48,12 +48,13 @@ const ControlsPanelComponent: React.FC<ControlsPanelProps> = ({
   onToggleStance,
   isTournamentMatch = false,
 }) => {
-  const isRightHanded = battingStance === 'RIGHT';
-
-  const handleSwingAction = (e: React.SyntheticEvent) => {
+  const handleTriggerAction = (e: React.SyntheticEvent) => {
     e.preventDefault();
-    if (canSwing && !isInningsOver) {
+    if (isInningsOver) return;
+    if (canSwing || isBallInFlight) {
       onSwing();
+    } else {
+      onNextBall();
     }
   };
 
@@ -231,20 +232,20 @@ const ControlsPanelComponent: React.FC<ControlsPanelProps> = ({
 
       {/* Action Trigger Buttons */}
       <div className="flex items-center gap-2 pt-1 border-t border-slate-800">
-        {/* BIG SWING BAT BUTTON */}
+        {/* PRIMARY BOWL / SWING BAT BUTTON */}
         <button
           type="button"
-          onPointerDown={handleSwingAction}
-          onClick={handleSwingAction}
-          disabled={!canSwing || isInningsOver}
+          onClick={handleTriggerAction}
+          disabled={isInningsOver}
           className={`flex-1 min-h-[48px] py-3 px-6 rounded-xl font-black text-sm sm:text-base tracking-wide flex items-center justify-center gap-2 transition-all shadow-xl active:scale-95 cursor-pointer ${
-            canSwing && !isInningsOver
-              ? 'bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-400 hover:to-teal-400 text-slate-950 border border-emerald-300 shadow-emerald-500/30 ring-2 ring-emerald-400/40'
+            !isInningsOver
+              ? canSwing
+                ? 'bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-400 hover:to-teal-400 text-slate-950 border border-emerald-300 shadow-emerald-500/30 ring-2 ring-emerald-400/40'
+                : 'bg-gradient-to-r from-amber-500 to-yellow-500 hover:from-amber-400 hover:to-yellow-400 text-slate-950 border border-amber-300 shadow-amber-500/30 ring-2 ring-amber-400/40'
               : 'bg-slate-800 text-slate-500 border border-slate-700 cursor-not-allowed opacity-60'
           }`}
         >
-          <Zap className="w-4 h-4 fill-slate-950" />
-          <span>SWING BAT</span>
+          <span>{canSwing ? 'SWING BAT' : 'BOWL / SWING'}</span>
           <span className="text-xs font-mono opacity-80">(SPACE / ENTER)</span>
         </button>
 
