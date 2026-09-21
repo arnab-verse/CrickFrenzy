@@ -320,6 +320,8 @@ export default function App() {
   const hasSwungRef = useRef<boolean>(false);
   const isBowlerRunningUpRef = useRef<boolean>(false);
   const bowlerRunUpProgressRef = useRef<number>(0);
+  const queuedSwingRef = useRef<boolean>(false);
+  const queuedDirectionRef = useRef<ShotDirection | undefined>(undefined);
   const isBallInFlightRef = useRef<boolean>(false);
   const selectedDirectionRef = useRef<ShotDirection>('STRAIGHT');
   const gameStateRef = useRef(gameState);
@@ -551,6 +553,8 @@ export default function App() {
 
   // Bowl next delivery function with rock-solid sequence locking and pre-delivery bowler run-up
   const bowlNextBall = useCallback(() => {
+    // Prevent restarting run-up if bowler is already running up or ball is in flight
+    if (isBowlerRunningUpRef.current || isBallInFlightRef.current) return;
     const st = gameStateRef.current;
     if (st.isInningsOver || isPausedRef.current) return;
 
@@ -634,6 +638,14 @@ export default function App() {
 
         soundFx.playBallRelease();
         flightStartTimeRef.current = performance.now();
+        // If player triggered a swing during bowler run-up, execute swing as ball releases!
+        if (queuedSwingRef.current) {
+          const qDir = queuedDirectionRef.current;
+          queuedSwingRef.current = false;
+          queuedDirectionRef.current = undefined;
+          handleSwing(qDir);
+          return;
+        }
         let hasBounced = false;
 
         const animateFlight = (flightNow: number) => {
@@ -690,7 +702,20 @@ export default function App() {
 
   // Player Trigger Swing (supports optional directionOverride from click position)
   const handleSwing = useCallback((directionOverride?: ShotDirection) => {
-    if (!isBallInFlightRef.current || !currentDeliveryRef.current || hasSwungRef.current || gameStateRef.current.isInningsOver || isPausedRef.current) {
+    if (gameStateRef.current.isInningsOver || isPausedRef.current) return;
+
+    // Queue swing if bowler is mid run-up so it executes the instant ball releases
+    if (isBowlerRunningUpRef.current) {
+      queuedSwingRef.current = true;
+      queuedDirectionRef.current = directionOverride;
+      if (directionOverride && directionOverride !== selectedDirectionRef.current) {
+        setSelectedDirection(directionOverride);
+        selectedDirectionRef.current = directionOverride;
+      }
+      return;
+    }
+
+    if (!isBallInFlightRef.current || !currentDeliveryRef.current || hasSwungRef.current) {
       return;
     }
 
